@@ -255,6 +255,7 @@ def normalization_midi_file(dirs):
 
                         file_name = file.split('/')[-1].split('.')
                         new_file = root_path + str(file_name[0]) + '.npz'
+                        print(new_file)
                         np.savez_compressed(new_file, **info)
             except Exception:
                 pass

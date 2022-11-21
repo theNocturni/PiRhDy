@@ -62,9 +62,9 @@ def get_bars(time_info, matrix):
 
 
 def split_sequence(name):
-    file_list = pickle.load(open('/filenames/sequence/{}'.format(name), 'rb'))
+    file_list = pickle.load(open('filenames/sequence/{}'.format(name), 'rb'))
     # split sequence into bars
-    bar_path = '/dataset/bar/{}/'.format(name)
+    bar_path = 'dataset/bar/{}/'.format(name)
 
     for file in file_list:
         meta_dict = {}

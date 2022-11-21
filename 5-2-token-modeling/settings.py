@@ -5,7 +5,7 @@ from functions import melody_modeling, chroma_melody_modeling, chroma_state_melo
 from functions import harmony_modeling, chroma_harmony_modeling, chroma_state_harmony_modeling, chroma_octave_harmony_modeling, chroma_velocity_harmony_modeling, generate_harmony_batch_data
 from layers import TimeHistory
 import tensorflow as tf
-from tensorflow.keras.utils import multi_gpu_model
+# from tensorflow.keras.utils import multi_gpu_model
 import numpy as np
 from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping
 import os
@@ -27,10 +27,10 @@ def run_script(gpu_names=None, model_name='overall', ratio=1):
     epoch_num = 2
     train_num = 1218504295
     test_num = 135400000
-
+    tf.compat.v1.experimental.output_all_intermediates(True)
     # dataset paths
-    train_path = 'token_dataset/train'
-    test_path = 'token_dataset/test'
+    train_path = 'dataset/token_dataset/train'
+    test_path = 'dataset/token_dataset/test'
 
     # model settings
     model_name_list = {"overall": token_modeling,
@@ -56,11 +56,11 @@ def run_script(gpu_names=None, model_name='overall', ratio=1):
     model = model_name_list[model_name](act_func, hidden_dim, layer_number)
     print('finish load ' + model_name)
 
-    if gpu_num >= 2:
-        parallel_model = multi_gpu_model(model, gpus=gpu_num)
-    else:
-        parallel_model = model
-
+    # if gpu_num >= 2:
+    #     parallel_model = multi_gpu_model(model, gpus=gpu_num)
+    # else:
+    #     parallel_model = model
+    parallel_model = model
     # callback settings
     model_path = "best_models/"
     filepath = "/best"

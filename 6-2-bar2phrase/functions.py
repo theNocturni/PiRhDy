@@ -2,8 +2,8 @@ import pickle
 import numpy as np
 
 def construct_phrase(name):
-    file_list = pickle.load(open('/filenames/bars/{}'.format(name), 'rb'))
-    root_path = '/dataset/phrase/'
+    file_list = pickle.load(open('filenames/bars/{}'.format(name), 'rb'))
+    root_path = 'dataset/phrase/'
     for file in file_list:
         phrase_info = {}
         bars_list = np.load(file, allow_pickle=True)

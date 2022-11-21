@@ -121,9 +121,9 @@ def add_note_to_melody(matrix, note, step):
 
 def rewrite_file(file):
     # rewrite matrix as quadruple (chroma, octave, velocity, state) sequence
-    root_path = '/sequence/'
-    chord_dict = np.load('../3-chord2chroma/chord_dict.npz', allow_pickle=True)['chord_dict']
-    chord_index = np.load('../3-chord2chroma/chord_index.npz', allow_pickle=True)['chord_index']
+    root_path = 'sequence/'
+    chord_dict = np.load('3-chord2chroma/chord_dict.npz', allow_pickle=True)['chord_dict']
+    chord_index = np.load('3-chord2chroma/chord_index.npz', allow_pickle=True)['chord_index']
     info_dict = {}
     time_info, tracks, melody_info = load_matrix(file)
     meta_dict = {'time_signature_changes': time_info}

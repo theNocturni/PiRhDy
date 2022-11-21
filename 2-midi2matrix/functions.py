@@ -36,7 +36,6 @@ def get_file_path(root_path, file_list, dir_list):
 def write_filenames(file_path, names, name_path, use_names):
     if use_names:
         for name in names:
-            print(name)
             # root path
             root_path = file_path + '{}'.format(name)
             file_list = []
@@ -262,7 +261,7 @@ def midi_to_matrix(name):
                 else:
                     new_idx = split_matrix(info_dict, meta_dict, matrix, new_idx, program)
             filename = root_path + file.split('/')[-1]
-
+            print(filename)
             np.savez_compressed(filename, **info_dict)
             compression = zipfile.ZIP_DEFLATED
             with zipfile.ZipFile(filename, 'a') as zip_file:

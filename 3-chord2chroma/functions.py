@@ -50,7 +50,7 @@ def reconstruct_sparse(target_dict, name):
                       shape=target_dict[name + '_csc_shape']).toarray()
 
 def load_matrix(file):
-    with np.load(file) as loaded:
+    with np.load(file, allow_pickle=True) as loaded:
         if 'meta.json' not in loaded:
             raise ValueError("Cannot find 'info.json' in the npz file.")
         meta_dict = json.loads(loaded['meta.json'].decode('utf-8'))

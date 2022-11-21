@@ -66,7 +66,7 @@ def remove_ids(idx, end):
 
 
 def generate_accompaniment(name):
-    file_list = pickle.load(open('/filenames/phrase/{}'.format(name), 'rb'))
+    file_list = pickle.load(open('filenames/phrase/{}'.format(name), 'rb'))
     #    file_list = file_list[0:100]
     train = open('context_acc/train_{}'.format(name), 'ab')
     test = open('context_acc/test_{}'.format(name), 'ab')
