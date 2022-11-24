@@ -23,6 +23,7 @@ fairseq-train ${1}_data_bin --user-dir musicbert \
     --max-positions $MAX_POSITIONS \
     --max-tokens $((${TOKENS_PER_SAMPLE} * ${MAX_SENTENCES})) \
     --max-epoch 100 \
+    --save-interval 5 \
     --task sentence_prediction \
     --reset-optimizer --reset-dataloader --reset-meters \
     --required-batch-size-multiple 1 \
